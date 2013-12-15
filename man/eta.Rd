@@ -1,0 +1,46 @@
+\name{eta}
+\alias{eta}
+\title{Eta coefficient for nominal/interval data.}
+\usage{
+  eta(x, y, breaks = NULL, na.rm = FALSE)
+}
+\arguments{
+  \item{x}{Independent nominal variable (factor or
+  numeric).}
+
+  \item{y}{Dependent interval variable (numeric).}
+
+  \item{breaks}{If \code{x} is interval data the
+  \code{breaks} argument can be specified to classify the
+  data. \code{breaks} is passed on to the function
+  \code{\link{cut}}.}
+
+  \item{na.rm}{Logical. Indicating if \code{NA} values are
+  removed.}
+}
+\value{
+  Eta coefficient
+}
+\description{
+  Eta coefficient for nominal/interval data.
+}
+\examples{
+attach(d.eta)     # using d.eta dataset
+eta(x1, y)
+
+# removing missing data
+eta(c(x1, 2), c(NA, y), na.rm=TRUE)   # NA added to y to show NA behaviour
+
+# classify interval data x
+eta(x, y, breaks=c(1, 4, 7,10))
+# visualize classication
+plot(x, y)
+abline(v=c(1, 4, 7,10))
+
+# setting number of breaks for classification
+eta(x, y, breaks=7)
+}
+\author{
+  Mark Heckmann
+}
+
